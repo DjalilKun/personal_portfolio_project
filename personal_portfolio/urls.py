@@ -20,7 +20,7 @@ from django.conf import settings
 from portfolio import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls,name='adminpage'),
     path('',views.start,name='homepage'),
     path('blog/',include('blog.urls')),
 ]

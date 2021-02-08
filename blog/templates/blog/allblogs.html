@@ -1,6 +1,15 @@
-here some blogs
-{% for blog in blogs %}
+{%  extends 'portfolio/base.html'%}
+{% block content %}
 
-<h2>{{ blog.title}}</h2>
-<h2>{{ blog.description}}</h2>
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center ">
+  <h1 class="display-1">BLOGS</h1>
+  <small class="text-muted">Djalil write {{ blogs.count }} blog{{blogs.count|pluralize}}</small
+</div>
+{% for blog in blogs %}
+<div class="position-relative overflow-hidden p-3 p-md-3 m-md-3  ">
+  <a href="{%  url 'blog:detailblog' blog.id %}">
+  <h2>{{ blog.title}}</h2></a>
+  <h2>{{ blog.description |truncatechars:100 }}</h2>
+</div>
 {% endfor %}
+{%  endblock %}
